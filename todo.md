@@ -23,3 +23,6 @@
 - [x] Replace team section text icons (SE, ST, CS) with representative images
 - [x] Generate/find images for: Wireless Network Engineers, Support Team, Security Team
 - [x] Upload team images to CDN and update SinbarWebsite.tsx
+- [x] Replace text badge icons (MS, CS, UI, CT, FN, AW) with actual company logos
+- [x] Find/create logos for: Microsoft, Cisco, Ubiquiti, CompTIA, Fortinet, AWS
+- [x] Upload logos to CDN and update SinbarWebsite.tsx certifications section

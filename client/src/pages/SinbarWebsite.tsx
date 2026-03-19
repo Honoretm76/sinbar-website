@@ -125,12 +125,12 @@ const whySinbar = [
 ];
 
 const certifications = [
-  { name: "Microsoft Partner", badge: "MS", color: "bg-blue-600" },
-  { name: "Cisco Certified", badge: "CS", color: "bg-blue-800" },
-  { name: "Ubiquiti UniFi", badge: "UI", color: "bg-slate-700" },
-  { name: "CompTIA Network+", badge: "CT", color: "bg-red-600" },
-  { name: "Fortinet NSE", badge: "FN", color: "bg-red-700" },
-  { name: "AWS Partner", badge: "AW", color: "bg-amber-600" },
+  { name: "Microsoft Partner", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-microsoft_5ec99364.png", invert: true },
+  { name: "Cisco Certified", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-cisco_31ceec82.png", invert: false },
+  { name: "Ubiquiti Certified", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-ubiquiti_c934847a.png", invert: true },
+  { name: "CompTIA Partner", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-comptia_5f97fe6b.png", invert: false },
+  { name: "Fortinet NSE", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-fortinet_7dabf92f.png", invert: true },
+  { name: "AWS Partner", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-aws-white_d5662536.png", invert: false },
 ];
 
 const team = [
@@ -534,9 +534,11 @@ export default function SinbarWebsite() {
             </div>
             <p className="text-xs text-gray-600 mb-2">Bronx Born. Business Proven.</p>
             <p className="text-xs text-gray-500 mb-3">Certified & Partnered With:</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               {certifications.map((cert) => (
-                <span key={cert.badge} className={`${cert.color} text-white text-[10px] font-bold px-2 py-1 rounded`}>{cert.badge}</span>
+                <div key={cert.name} className="rounded-md px-2 py-1 flex items-center justify-center" style={{ backgroundColor: "rgba(255,255,255,0.06)" }} title={cert.name}>
+                  <img src={cert.logo} alt={cert.name} className={`h-7 max-w-[80px] object-contain ${cert.invert ? "brightness-0 invert" : ""}`} />
+                </div>
               ))}
             </div>
           </div>
