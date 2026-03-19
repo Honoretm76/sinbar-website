@@ -20,7 +20,8 @@ const GOLD = "#C9A84C";
 const GOLD_RGB = "201,168,76";
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/ZxXCJe99gzkbKiEMDdcDKE";
 const LOGO = `${CDN}/sinbar-3d-logo-black-bg_270317ec.png`;
-const HERO_BG = `${CDN}/sinbar-hero-bg-2JHdBd79bMT4bBUwcTdA9j.webp`;
+const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/nyc-wireless-hero-KtPuFaassPaFh6UN5eLSxY.webp";
+const STATS_GOLD = "#A8872E";
 const SERVICES_BG = `${CDN}/sinbar-services-bg-RE9rhxdkVCh5YjtDMs4XMQ.webp`;
 const ABOUT_BG = `${CDN}/sinbar-about-bg-VCHLf2Jbd837RpfmQjmMdy.webp`;
 
@@ -131,6 +132,7 @@ const certifications = [
   { name: "CompTIA Partner", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-comptia_5f97fe6b.png", invert: false },
   { name: "Fortinet NSE", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-fortinet_7dabf92f.png", invert: true },
   { name: "AWS Partner", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-aws-white_d5662536.png", invert: false },
+  { name: "Ruckus Partner", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/logo-ruckus_a0d99d64.png", invert: true, highlight: true },
 ];
 
 const team = [
@@ -506,11 +508,12 @@ export default function SinbarWebsite() {
 
       {/* ============ HERO ============ */}
       <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/90 to-black/70 z-10" />
-          <img src={HERO_BG} alt="" className="w-full h-full object-cover opacity-30" />
+        <div className="absolute inset-0 z-0">
+          <img src={HERO_BG} alt="NYC Wireless Network" className="w-full h-full object-cover" />
         </div>
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="absolute inset-0 z-[1]" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.45) 70%, rgba(0,0,0,0.3) 100%)" }} />
+        <div className="absolute inset-0 z-[2]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6) 100%)" }} />
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>
           <div className="max-w-3xl">
             <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ color: GOLD, backgroundColor: `rgba(${GOLD_RGB},0.1)`, border: `1px solid rgba(${GOLD_RGB},0.2)` }}>
               NYC's Managed Wireless Internet Specialists
@@ -535,7 +538,7 @@ export default function SinbarWebsite() {
             <p className="text-xs text-gray-500 mb-3">Certified & Partnered With:</p>
             <div className="flex flex-wrap items-center gap-2">
               {certifications.map((cert) => (
-                <div key={cert.name} className="rounded-md px-2 py-1 flex items-center justify-center" style={{ backgroundColor: "rgba(255,255,255,0.06)" }} title={cert.name}>
+                <div key={cert.name} className="rounded-md px-2 py-1 flex items-center justify-center backdrop-blur-sm" style={{ backgroundColor: "rgba(255,255,255,0.08)", ...(cert.highlight ? { border: `1px solid rgba(${GOLD_RGB},0.3)` } : {}) }} title={cert.name}>
                   <img src={cert.logo} alt={cert.name} className={`h-7 max-w-[80px] object-contain ${cert.invert ? "brightness-0 invert" : ""}`} />
                 </div>
               ))}
@@ -553,7 +556,7 @@ export default function SinbarWebsite() {
                 { value: "50+", label: "NYC Businesses Served" },
               ].map((stat, i) => (
                 <div key={i} className="py-4 px-6 text-center">
-                  <div className="font-extrabold text-xl font-['Sora']" style={{ color: GOLD }}>{stat.value}</div>
+                  <div className="font-extrabold text-xl font-['Sora']" style={{ color: STATS_GOLD }}>{stat.value}</div>
                   <div className="text-gray-500 text-xs mt-0.5">{stat.label}</div>
                 </div>
               ))}

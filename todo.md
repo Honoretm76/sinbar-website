@@ -26,3 +26,9 @@
 - [x] Replace text badge icons (MS, CS, UI, CT, FN, AW) with actual company logos
 - [x] Find/create logos for: Microsoft, Cisco, Ubiquiti, CompTIA, Fortinet, AWS
 - [x] Upload logos to CDN and update SinbarWebsite.tsx certifications section
+- [x] Add NYC wireless network background image to hero section
+- [x] Add NYC aerial wireless network background image to hero (approved by user)
+- [x] Add Ruckus partner logo to Certified & Partnered With section
+- [x] Make stats bar gold color darker (#A8872E)
+- [x] Generate watermark-free NYC aerial wireless network image for hero background
+- [x] Update hero section to use new background image instead of interactive canvas
