@@ -878,12 +878,17 @@ export default function SinbarWebsite() {
                 {navItems.map((item) => (
                   <a key={item.label} href={item.href} className="block text-gray-500 hover:text-white transition-colors">{item.label}</a>
                 ))}
+                <Link href="/legal" className="block text-gray-500 hover:text-white transition-colors">Legal</Link>
               </div>
             </div>
           </div>
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-gray-600">&copy; 2026 Sinbar Consultants LLC. All rights reserved.</p>
-            <a href="https://sinbarconsultants.com" className="text-xs text-gray-600 hover:text-gray-400 transition-colors">sinbarconsultants.com</a>
+            <p className="text-xs text-gray-600">&copy; 2026 Sinbar Consultants LLC. All rights reserved. | Bronx, New York</p>
+            <div className="flex items-center gap-4 text-xs text-gray-600">
+              <Link href="/legal" className="hover:text-gray-400 transition-colors">Legal</Link>
+              <Link href="/legal" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
+              <Link href="/legal" className="hover:text-gray-400 transition-colors">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </footer>

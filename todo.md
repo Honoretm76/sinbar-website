@@ -16,3 +16,6 @@
 - [x] Fix conditional hook issue in BlogPost component
 - [x] Add related articles section at bottom of each blog post
 - [x] Add CTA section with contact links at bottom of each blog post
+- [x] Add Legal section back to the footer (Privacy Policy, Terms of Service, etc.)
+- [x] Create Legal page with proper content matching original site
+- [x] Add legal route to App.tsx
