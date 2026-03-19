@@ -134,9 +134,27 @@ const certifications = [
 ];
 
 const team = [
-  { name: "Sinbar Leadership", title: "Founder & CEO", credentials: "CompTIA Network+, Cisco CCNA, 10+ years NYC IT", focus: "Wireless infrastructure, business strategy" },
-  { name: "Network Engineering Team", title: "Senior Network Engineers", credentials: "Ubiquiti UniFi Certified, Fortinet NSE", focus: "Wireless deployment, security hardening" },
-  { name: "NOC Operations", title: "24/7 Monitoring Team", credentials: "ITIL Certified, Microsoft Azure", focus: "Proactive monitoring, incident response" },
+  {
+    name: "Sinbar Team",
+    title: "Wireless Network Engineers",
+    credentials: "Ubiquiti Certified, CompTIA Network+",
+    focus: "Our certified engineers design, deploy, and manage wireless networks across NYC. From site surveys to ongoing optimization, we handle every detail.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/team-engineers-Y67qhDQsB9QsXBUdUJstbu.webp",
+  },
+  {
+    name: "Support Team",
+    title: "24/7 Help Desk & Field Technicians",
+    credentials: "CompTIA A+, Microsoft Certified",
+    focus: "Bronx-based technicians who know the borough. When you call, you reach a real person who can be on-site within hours \u2014 not days.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/team-support-akKjFWtqeBqSMTwU4jYZ2K.webp",
+  },
+  {
+    name: "Security Team",
+    title: "Cybersecurity Specialists",
+    credentials: "CompTIA Security+, Fortinet NSE",
+    focus: "Dedicated wireless security experts who monitor your network around the clock, respond to threats in real time, and keep your business data safe.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/team-security-94jbyCqrLHRbMUM3usbVpm.webp",
+  },
 ];
 
 /* Blog posts data mapped to slugs for linking */
@@ -523,6 +541,24 @@ export default function SinbarWebsite() {
             </div>
           </div>
         </div>
+        {/* Stats Bar */}
+        <div className="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur-sm" style={{ borderTop: `1px solid rgba(${GOLD_RGB},0.2)` }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-800">
+              {[
+                { value: "99.9%", label: "Uptime SLA Guaranteed" },
+                { value: "24/7", label: "Network Monitoring" },
+                { value: "< 4hr", label: "Response Time" },
+                { value: "50+", label: "NYC Businesses Served" },
+              ].map((stat, i) => (
+                <div key={i} className="py-4 px-6 text-center">
+                  <div className="font-extrabold text-xl font-['Sora']" style={{ color: GOLD }}>{stat.value}</div>
+                  <div className="text-gray-500 text-xs mt-0.5">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ============ SERVICES ============ */}
@@ -731,14 +767,16 @@ export default function SinbarWebsite() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {team.map((member, i) => (
-              <div key={member.name} className={`sr-hidden sr-delay-${i + 1} rounded-2xl p-6 text-center`} style={{ backgroundColor: "#0d0d0d", border: `1px solid rgba(${GOLD_RGB},0.1)` }}>
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: `rgba(${GOLD_RGB},0.15)` }}>
-                  <Users className="w-8 h-8" style={{ color: GOLD }} />
+              <div key={member.name} className={`sr-hidden sr-delay-${i + 1} rounded-2xl overflow-hidden`} style={{ backgroundColor: "#0d0d0d", border: `1px solid rgba(${GOLD_RGB},0.1)` }}>
+                <div className="w-full h-56 overflow-hidden">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
-                <h3 className="text-lg font-bold text-white font-['Sora'] mb-1">{member.name}</h3>
-                <p className="text-sm font-medium mb-2" style={{ color: GOLD }}>{member.title}</p>
-                <p className="text-xs text-gray-500 mb-1">{member.credentials}</p>
-                <p className="text-xs text-gray-600">{member.focus}</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-white font-['Sora'] mb-1">{member.name}</h3>
+                  <p className="text-sm font-medium mb-3" style={{ color: GOLD }}>{member.title}</p>
+                  <p className="text-xs text-gray-500 mb-2">{member.credentials}</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">{member.focus}</p>
+                </div>
               </div>
             ))}
           </div>

@@ -19,3 +19,7 @@
 - [x] Add Legal section back to the footer (Privacy Policy, Terms of Service, etc.)
 - [x] Create Legal page with proper content matching original site
 - [x] Add legal route to App.tsx
+- [x] Add stats bar back (99.9% Uptime SLA, 24/7 Network Monitoring, < 4hr Response Time, 50+ NYC Businesses Served)
+- [x] Replace team section text icons (SE, ST, CS) with representative images
+- [x] Generate/find images for: Wireless Network Engineers, Support Team, Security Team
+- [x] Upload team images to CDN and update SinbarWebsite.tsx
