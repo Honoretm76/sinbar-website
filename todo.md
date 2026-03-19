@@ -43,3 +43,5 @@
 - [x] Add success/cancel pages for Stripe checkout
 - [x] Write tests for Stripe integration
 - [x] Add Professional Services disclaimer (labor only, equipment quoted separately)
+- [x] Fix blog post pages returning 404 on direct URL access (server-side SPA fallback) — verified working, was testing wrong slug
+- [x] Increase Professional Services disclaimer text size to next size up
