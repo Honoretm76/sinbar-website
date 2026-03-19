@@ -34,3 +34,4 @@
 - [x] Update hero section to use new background image instead of interactive canvas
 - [x] Fix page title to be 30-60 characters using document.title (48 chars)
 - [x] Add alt text to all images missing it on homepage + aria-labels on footer social icons
+- [x] Make stats bar values use a brighter, bolder gold (#D4AF37) with glow and larger text

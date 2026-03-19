@@ -21,7 +21,7 @@ const GOLD_RGB = "201,168,76";
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/ZxXCJe99gzkbKiEMDdcDKE";
 const LOGO = `${CDN}/sinbar-3d-logo-black-bg_270317ec.png`;
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663427955080/j7TLVPMFE5nxAehtvQAsZ2/nyc-wireless-hero-KtPuFaassPaFh6UN5eLSxY.webp";
-const STATS_GOLD = "#A8872E";
+const STATS_GOLD = "#D4AF37";
 const SERVICES_BG = `${CDN}/sinbar-services-bg-RE9rhxdkVCh5YjtDMs4XMQ.webp`;
 const ABOUT_BG = `${CDN}/sinbar-about-bg-VCHLf2Jbd837RpfmQjmMdy.webp`;
 
@@ -562,7 +562,7 @@ export default function SinbarWebsite() {
                 { value: "50+", label: "NYC Businesses Served" },
               ].map((stat, i) => (
                 <div key={i} className="py-4 px-6 text-center">
-                  <div className="font-extrabold text-xl font-['Sora']" style={{ color: STATS_GOLD }}>{stat.value}</div>
+                  <div className="font-extrabold text-2xl font-['Sora']" style={{ color: STATS_GOLD, textShadow: `0 0 12px rgba(212,175,55,0.5)` }}>{stat.value}</div>
                   <div className="text-gray-500 text-xs mt-0.5">{stat.label}</div>
                 </div>
               ))}
