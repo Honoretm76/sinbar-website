@@ -562,7 +562,7 @@ export default function SinbarWebsite() {
                 { value: "50+", label: "NYC Businesses Served" },
               ].map((stat, i) => (
                 <div key={i} className="py-4 px-6 text-center">
-                  <div className="font-extrabold text-2xl font-['Sora']" style={{ color: STATS_GOLD, textShadow: `0 0 12px rgba(212,175,55,0.5)` }}>{stat.value}</div>
+                  <div className="font-extrabold text-2xl font-['Sora'] text-white">{stat.value}</div>
                   <div className="text-gray-500 text-xs mt-0.5">{stat.label}</div>
                 </div>
               ))}
