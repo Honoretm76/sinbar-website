@@ -532,7 +532,6 @@ export default function SinbarWebsite() {
                 View Plans <ChevronRight className="w-4 h-4" />
               </a>
             </div>
-            <p className="text-xs text-gray-600 mb-2">Bronx Born. Business Proven.</p>
             <p className="text-xs text-gray-500 mb-3">Certified & Partnered With:</p>
             <div className="flex flex-wrap items-center gap-2">
               {certifications.map((cert) => (
