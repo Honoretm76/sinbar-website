@@ -549,20 +549,16 @@ export default function SinbarWebsite() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        {/* Stats Bar */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur-sm" style={{ borderTop: `1px solid rgba(${GOLD_RGB},0.2)` }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-800">
+            {/* Stats Bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 mt-6">
               {[
                 { value: "99.9%", label: "Uptime SLA Guaranteed" },
                 { value: "24/7", label: "Network Monitoring" },
                 { value: "< 4hr", label: "Response Time" },
                 { value: "50+", label: "NYC Businesses Served" },
               ].map((stat, i) => (
-                <div key={i} className="py-4 px-6 text-center">
-                  <div className="font-extrabold text-2xl font-['Sora'] text-white">{stat.value}</div>
+                <div key={i} className="py-3 px-4 text-center">
+                  <div className="font-extrabold text-xl font-['Sora']" style={{ color: "#A8872E" }}>{stat.value}</div>
                   <div className="text-gray-500 text-xs mt-0.5">{stat.label}</div>
                 </div>
               ))}

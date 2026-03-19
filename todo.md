@@ -36,3 +36,4 @@
 - [x] Add alt text to all images missing it on homepage + aria-labels on footer social icons
 - [x] Make stats bar values use a brighter, bolder gold (#D4AF37) with glow and larger text
 - [x] Change stats bar values to white color
+- [x] Move stats bar right under Certified & Partnered With section and set color to darker gold (#A8872E)
