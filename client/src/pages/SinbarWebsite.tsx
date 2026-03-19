@@ -740,8 +740,8 @@ export default function SinbarWebsite() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-gray-500 text-center mt-6 max-w-2xl mx-auto leading-relaxed italic">
-            <span className="font-semibold text-gray-400 not-italic">Disclaimer:</span> Professional Services fees cover labor only. All enterprise-grade equipment, materials, and hardware will be quoted separately and are not included in this scope.
+          <p className="text-sm text-center mt-6 max-w-2xl mx-auto leading-relaxed italic" style={{ color: '#A8872E' }}>
+            <span className="font-semibold not-italic" style={{ color: '#A8872E' }}>Disclaimer:</span> Professional Services fees cover labor only. All enterprise-grade equipment, materials, and hardware will be quoted separately and are not included in this scope.
           </p>
         </div>
       </section>

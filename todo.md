@@ -45,3 +45,4 @@
 - [x] Add Professional Services disclaimer (labor only, equipment quoted separately)
 - [x] Fix blog post pages returning 404 on direct URL access (server-side SPA fallback) — verified working, was testing wrong slug
 - [x] Increase Professional Services disclaimer text size to next size up
+- [x] Change Professional Services disclaimer text color to darker gold (#A8872E)
