@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, InsertOrder, users, orders } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,60 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+export interface SaveOrderParams {
+  stripeSessionId: string;
+  stripeCustomerId: string | null;
+  stripeSubscriptionId: string | null;
+  stripePaymentIntentId: string | null;
+  userId: string | null;
+  customerEmail: string | null;
+  customerName: string | null;
+  planId: string | null;
+  serviceId: string | null;
+  quantity: number;
+  amountTotal: number;
+  currency: string;
+  status: string;
+  mode: string;
+}
+
+export async function saveOrder(params: SaveOrderParams): Promise<void> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot save order: database not available");
+    return;
+  }
+
+  try {
+    await db.insert(orders).values({
+      stripeSessionId: params.stripeSessionId,
+      stripeCustomerId: params.stripeCustomerId,
+      stripeSubscriptionId: params.stripeSubscriptionId,
+      stripePaymentIntentId: params.stripePaymentIntentId,
+      userId: params.userId,
+      customerEmail: params.customerEmail,
+      customerName: params.customerName,
+      planId: params.planId,
+      serviceId: params.serviceId,
+      quantity: params.quantity,
+      amountTotal: params.amountTotal,
+      currency: params.currency,
+      status: params.status,
+      mode: params.mode,
+    });
+    console.log(`[Database] Order saved: ${params.stripeSessionId}`);
+  } catch (error) {
+    console.error("[Database] Failed to save order:", error);
+    throw error;
+  }
+}
+
+export async function getOrdersByEmail(email: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get orders: database not available");
+    return [];
+  }
+
+  return db.select().from(orders).where(eq(orders.customerEmail, email));
+}

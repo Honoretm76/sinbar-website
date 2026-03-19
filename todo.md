@@ -37,3 +37,9 @@
 - [x] Make stats bar values use a brighter, bolder gold (#D4AF37) with glow and larger text
 - [x] Change stats bar values to white color
 - [x] Move stats bar right under Certified & Partnered With section and set color to darker gold (#A8872E)
+- [x] Add Stripe feature to the project
+- [x] Create Stripe checkout flow for pricing plans (Essentials, Business, Enterprise) AND professional services
+- [x] Connect pricing section "Get Started" buttons to Stripe checkout with quantity
+- [x] Add success/cancel pages for Stripe checkout
+- [x] Write tests for Stripe integration
+- [x] Add Professional Services disclaimer (labor only, equipment quoted separately)

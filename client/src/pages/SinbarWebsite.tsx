@@ -427,6 +427,43 @@ export default function SinbarWebsite() {
   const [scrolled, setScrolled] = useState(false);
   const contactRef = useRef<HTMLDivElement>(null);
   const [userCounts, setUserCounts] = useState({ essentials: 5, business: 10, enterprise: 25 });
+  const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null);
+
+  const planCheckout = trpc.checkout.createPlanSession.useMutation();
+  const serviceCheckout = trpc.checkout.createServiceSession.useMutation();
+
+  const handlePlanCheckout = async (planId: string, quantity: number) => {
+    setCheckoutLoading(planId);
+    try {
+      const result = await planCheckout.mutateAsync({
+        planId: planId as "essentials" | "business" | "enterprise",
+        quantity,
+        origin: window.location.origin,
+      });
+      toast.success("Redirecting to checkout...");
+      window.open(result.url, "_blank");
+    } catch (err: any) {
+      toast.error(err.message || "Failed to create checkout session");
+    } finally {
+      setCheckoutLoading(null);
+    }
+  };
+
+  const handleServiceCheckout = async (serviceId: string) => {
+    setCheckoutLoading(serviceId);
+    try {
+      const result = await serviceCheckout.mutateAsync({
+        serviceId: serviceId as "site-survey" | "network-audit" | "wifi-installation",
+        origin: window.location.origin,
+      });
+      toast.success("Redirecting to checkout...");
+      window.open(result.url, "_blank");
+    } catch (err: any) {
+      toast.error(err.message || "Failed to create checkout session");
+    } finally {
+      setCheckoutLoading(null);
+    }
+  };
 
   const adjustCount = (plan: string, delta: number) => {
     setUserCounts((prev) => {
@@ -654,8 +691,18 @@ export default function SinbarWebsite() {
                       </li>
                     ))}
                   </ul>
-                  <button onClick={scrollToContact} className="w-full py-3 rounded-lg font-bold text-sm transition-all hover:opacity-90" style={plan.highlight ? { backgroundColor: GOLD, color: "#000" } : { backgroundColor: "transparent", border: `1px solid rgba(${GOLD_RGB},0.3)`, color: GOLD }}>
-                    {plan.cta}
+                  <div className="flex items-baseline gap-1 mb-2 mt-2">
+                    <span className="text-lg font-bold text-white">Est. </span>
+                    <span className="text-2xl font-extrabold font-['Sora']" style={{ color: GOLD }}>${(parseInt(plan.price.replace('$','')) * count).toLocaleString()}</span>
+                    <span className="text-sm text-gray-500">/mo</span>
+                  </div>
+                  <button
+                    onClick={() => handlePlanCheckout(planKey, count)}
+                    disabled={checkoutLoading === planKey}
+                    className="w-full py-3 rounded-lg font-bold text-sm transition-all hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={plan.highlight ? { backgroundColor: GOLD, color: "#000" } : { backgroundColor: "transparent", border: `1px solid rgba(${GOLD_RGB},0.3)`, color: GOLD }}
+                  >
+                    {checkoutLoading === planKey ? "Processing..." : plan.cta}
                   </button>
                 </div>
               );
@@ -682,12 +729,20 @@ export default function SinbarWebsite() {
                     </li>
                   ))}
                 </ul>
-                <button onClick={scrollToContact} className="w-full py-3 rounded-lg font-bold text-sm transition-all border hover:bg-white/5" style={{ borderColor: `rgba(${GOLD_RGB},0.3)`, color: GOLD }}>
-                  Request Quote
+                <button
+                  onClick={() => handleServiceCheckout(svc.id)}
+                  disabled={checkoutLoading === svc.id}
+                  className="w-full py-3 rounded-lg font-bold text-sm transition-all border hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ borderColor: `rgba(${GOLD_RGB},0.3)`, color: GOLD }}
+                >
+                  {checkoutLoading === svc.id ? "Processing..." : "Purchase Now"}
                 </button>
               </div>
             ))}
           </div>
+          <p className="text-xs text-gray-500 text-center mt-6 max-w-2xl mx-auto leading-relaxed italic">
+            <span className="font-semibold text-gray-400 not-italic">Disclaimer:</span> Professional Services fees cover labor only. All enterprise-grade equipment, materials, and hardware will be quoted separately and are not included in this scope.
+          </p>
         </div>
       </section>
 

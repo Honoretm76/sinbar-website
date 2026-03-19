@@ -1,6 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import BlogPost from "@/pages/BlogPost";
+import CheckoutCancel from "@/pages/CheckoutCancel";
+import CheckoutSuccess from "@/pages/CheckoutSuccess";
 import Legal from "@/pages/Legal";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
@@ -14,6 +16,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/blog/:slug"} component={BlogPost} />
       <Route path={"/legal"} component={Legal} />
+      <Route path={"/checkout/success"} component={CheckoutSuccess} />
+      <Route path={"/checkout/cancel"} component={CheckoutCancel} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
