@@ -956,7 +956,7 @@ export default function SinbarWebsite() {
                   <div className="text-[10px] font-normal text-gray-400">Consultants LLC</div>
                 </div>
               </div>
-              <p className="text-sm text-gray-500 mb-4 max-w-sm">NYC's managed wireless internet specialists. Bronx Born. Business Proven.</p>
+              <p className="text-sm text-gray-500 mb-4 max-w-sm">NYC's managed wireless internet specialists.</p>
               <div className="flex items-center gap-3">
                 <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" aria-label="Facebook"><FacebookIcon className="w-4 h-4" /></a>
                 <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" aria-label="Instagram"><InstagramIcon className="w-4 h-4" /></a>
