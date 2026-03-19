@@ -417,6 +417,12 @@ function CoverageMap() {
 /* ------------------------------------------------------------------ */
 export default function SinbarWebsite() {
   useScrollReveal();
+
+  // SEO: Set document title (30-60 characters)
+  useEffect(() => {
+    document.title = "Sinbar Consultants | Managed WiFi & Wireless NYC";
+  }, []);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -568,7 +574,7 @@ export default function SinbarWebsite() {
       {/* ============ SERVICES ============ */}
       <section id="services" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
-          <img src={SERVICES_BG} alt="" className="w-full h-full object-cover" />
+          <img src={SERVICES_BG} alt="Sinbar Consultants wireless network services" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 sr-hidden">
@@ -856,7 +862,7 @@ export default function SinbarWebsite() {
       {/* ============ CONTACT ============ */}
       <section id="contact" className="py-24 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, #000000, #0d0d0d, #000000)" }}>
         <div className="absolute inset-0 opacity-5">
-          <img src={ABOUT_BG} alt="" className="w-full h-full object-cover" />
+          <img src={ABOUT_BG} alt="Sinbar Consultants team and office" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -901,9 +907,9 @@ export default function SinbarWebsite() {
               </div>
               <p className="text-sm text-gray-500 mb-4 max-w-sm">NYC's managed wireless internet specialists. Bronx Born. Business Proven.</p>
               <div className="flex items-center gap-3">
-                <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors"><FacebookIcon className="w-4 h-4" /></a>
-                <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors"><InstagramIcon className="w-4 h-4" /></a>
-                <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors"><LinkedInIcon className="w-4 h-4" /></a>
+                <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" aria-label="Facebook"><FacebookIcon className="w-4 h-4" /></a>
+                <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" aria-label="Instagram"><InstagramIcon className="w-4 h-4" /></a>
+                <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" aria-label="LinkedIn"><LinkedInIcon className="w-4 h-4" /></a>
               </div>
             </div>
             <div>

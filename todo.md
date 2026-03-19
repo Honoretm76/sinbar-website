@@ -32,3 +32,5 @@
 - [x] Make stats bar gold color darker (#A8872E)
 - [x] Generate watermark-free NYC aerial wireless network image for hero background
 - [x] Update hero section to use new background image instead of interactive canvas
+- [x] Fix page title to be 30-60 characters using document.title (48 chars)
+- [x] Add alt text to all images missing it on homepage + aria-labels on footer social icons
