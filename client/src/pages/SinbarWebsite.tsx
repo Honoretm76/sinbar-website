@@ -4,7 +4,7 @@ import {
   Wifi, Shield, Building2, Phone, Mail, MapPin, Check,
   ChevronRight, ArrowRight, Star, Clock, Users, Zap,
   Headphones, BarChart3, Globe, Server, Lock, Radio,
-  Minus, Plus, Menu, X,
+  Minus, Plus, Menu, X, MessageCircle,
 } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
@@ -991,6 +991,23 @@ export default function SinbarWebsite() {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/13472017076"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group"
+        style={{
+          backgroundColor: "#25D366",
+          color: "white",
+          boxShadow: "0 10px 25px -5px rgba(37, 211, 102, 0.4)"
+        }}
+      >
+        <MessageCircle className="w-6 h-6 fill-current" />
+        <span className="font-bold text-sm">Chat with us</span>
+        <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-500" />
+      </a>
     </div>
   );
 }
