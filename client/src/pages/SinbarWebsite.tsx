@@ -409,7 +409,7 @@ function CoverageMap() {
     marker.addListener("click", () => hqInfo.open(map, marker));
   }, []);
 
-  return <MapView className="w-full h-full rounded-xl" initialCenter={{ lat: 40.738, lng: -73.94 }} initialZoom={10} onMapReady={onMapReady} />;
+  return <div role="img" aria-label="Sinbar Consultants service coverage map showing Bronx and NYC boroughs"><MapView className="w-full h-full rounded-xl" initialCenter={{ lat: 40.738, lng: -73.94 }} initialZoom={10} onMapReady={onMapReady} /></div>;
 }
 
 /* ------------------------------------------------------------------ */

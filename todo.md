@@ -47,3 +47,4 @@
 - [x] Increase Professional Services disclaimer text size to next size up
 - [x] Change Professional Services disclaimer text color to darker gold (#A8872E)
 - [x] Update footer tagline: remove "Bronx Born. Business Proven." (visual edit)
+- [x] Fix SEO: add alt text to the 1 image missing it on homepage (Google Maps tile - added role=img with aria-label)
